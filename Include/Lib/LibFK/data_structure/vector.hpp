@@ -8,7 +8,6 @@
 
 #include <Lib/LibC/stdio.h>
 #include <Lib/LibC/stddef.h>
-#include <Lib/LibFK/memory/own_ptr.hpp>
 
 namespace FK{
 
@@ -17,24 +16,24 @@ class Vector{
     private:
         size_t capacity {1};    
         size_t size {0};
-        own_ptr<T[]> array;
+        T* array;
     public:
         Vector(){
-            array = make<T[]>(capacity);
+            array = new T[capacity];
             printf("[OK]: Allocate a vector with size of %d\n", capacity);
         }
 
         Vector(size_t array_capacity){
             capacity = array_capacity;
             size = 0;
-            array = make<T[]>(capacity);
+            array = new T[array_capacity];
             printf("[OK]: Allocate a vector with size of %d\n", capacity);
         }  
 
         ~Vector(){
             size = 0;
             capacity = 0;
-            array.reset();
+            delete[] array;
 
             printf("[OK]: Delete the array\n");
         }
@@ -42,13 +41,13 @@ class Vector{
         void reallocate_vector(){
             printf("[OK]: Realocate the array with %d\n", (2 * capacity));
             capacity *= 2;
-            own_ptr<T[]> new_array = make<T[]>(capacity);
+            T* new_array = new T[capacity];
 
             for (size_t i = 0; i < size; i++){
                 new_array[i] = array[i];
             }
 
-            array.reset();
+            delete[] array;
 
             this->array = new_array;
         }
@@ -71,7 +70,7 @@ class Vector{
   
         void Insert(T new_element){
             if (is_full()){
-                realocate_vector();
+                reallocate_vector();
             }
             
             printf("[OK]: Insert the element\n");

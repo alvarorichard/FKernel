@@ -16,7 +16,7 @@ FKernel is a project to be written in C++, Rust, and Nasm. It aims to be easily 
 - [CLANG/LLVM](https://llvm.org/)
 - [XMAKE](https://xmake.io/)
 - [LLDB](https://lldb.llvm.org/)
-- [GDB](https://www.gnu.org/software/gdb/)
+- [GRUB](https://www.gnu.org/software/grub/)
 
 
 ## Building

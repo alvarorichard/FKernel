@@ -11,12 +11,12 @@ FKernel is a project to be written in C++, Rust, and Nasm. It aims to be easily 
 
 ## Prerequisites
 
-- [QEMU](https://www.qemu.org/)
-- [NASM](https://www.nasm.us/)
-- [CLANG/LLVM](https://llvm.org/)
-- [XMAKE](https://xmake.io/)
-- [LLDB](https://lldb.llvm.org/)
-- [GRUB](https://www.gnu.org/software/grub/)
+- [qemu](https://www.qemu.org/)
+- [nasm](https://www.nasm.us/)
+- [clang/llvm](https://llvm.org/)
+- [xmake](https://xmake.io/)
+- [lldb](https://lldb.llvm.org/)
+- [grub](https://www.gnu.org/software/grub/)
 
 
 ## Building
